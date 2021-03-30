@@ -1,0 +1,6 @@
+"https://www.ekinokssoftware.com"
+"https://www.facebook.com"
+"https://twitter.com"
+"https://github.com/"
+"https://dummie.org"
+"https://www.youtube.com/papapap"

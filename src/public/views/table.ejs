@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title><%=tablename%></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript">
+        function deleteRequest(id) {
+            var data = {};
+            data.payload = id;
+            $.ajax({
+                type: 'DELETE',
+                data: JSON.stringify(data),
+                dataType: 'json',
+                contentType: 'application/json',
+                url: '/request/delete',
+                success: function (res) {
+                    if (res.success) {
+                        window.location = '/request/list'
+                    } else {
+                        alert('Cannot Deleted')
+                    }
+                },
+                error: function (err) {
+                    alert(e.message)
+                }
+            });
+        }
+    </script>
+
+    <link rel="stylesheet" href="../css/table.css">
+</head>
+
+<body>
+    <%- include('partials/navbar')%>
+    <h1><%=tablename%></h1>
+    <table class="container">
+        <thead>
+            <tr>
+                <% for(let i = 0 ; i<columns.length ; i++){%>
+                <th class="col-names"><%=columns[i]%></th>
+                <%}%>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0 ; i<data.length ; i++){%>
+            <tr id=<%= data[i][0] %>>
+                <%for (let j = 0 ; j<data[i].length ; j++){%>
+                <td><%=data[i][j]%></td>
+                <%}%>
+                <td><button id = "update" class="btn btn-warning">Update</button></td>
+                <td><button href="#" id="<%= data[i][0] %>" onclick = "deleteRequest(this.id)" class="btn
+                btn-danger">Delete</button>
+                </td>
+                <%}%>
+
+            <tr>
+                </tbody>
+    </table>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+
+
+</body>
+
+</html>
