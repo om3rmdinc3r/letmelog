@@ -20,11 +20,12 @@
                 contentType: 'application/json',
                 url: '/user/delete',
                 success: function (res) {
-                    if (res.success) {
+                    if (res.ResponseData.data) {
+                        alert(res.ResponseData.message)
                         window.location = '/user/list'
                     }
-                    if (res.conflict) {
-                        alert("Conflict")
+                    if (!(res.ResponseData.data)) {
+                        alert(res.ResponseData.message)
                     }
                 },
                 error: function (e) {
