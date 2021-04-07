@@ -32,6 +32,13 @@
             });
         }
     </script>
+    <script type="text/javascript">
+    function ShowStats(id) {
+        event.preventDefault();
+        var id = id
+        location.href = '/log/statistics?req_id=' + id;
+    }
+    </script>
 
     <link rel="stylesheet" href="../css/table.css">
 </head>
@@ -47,6 +54,7 @@
                 <%}%>
                 <th>Update</th>
                 <th>Delete</th>
+                <th>Statistics</th>
             </tr>
         </thead>
         <tbody>
@@ -59,6 +67,8 @@
                 <td><button href="#" id="<%= data[i][0] %>" onclick = "deleteRequest(this.id)" class="btn
                 btn-danger">Delete</button>
                 </td>
+                <td><button href="#" id="<%= data[i][0] %>" onclick = "ShowStats(this.id)"  class="btn btn-success">Statistics</button>
+                    </td>
                 <%}%>
 
             <tr>

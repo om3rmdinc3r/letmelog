@@ -39,6 +39,8 @@
 <body>
     <%- include('partials/navbar')%>
     <h1><%=tablename%></h1>
+
+    <!-- Pagination Start --> 
     <% if (totalpages > 0) { %>
     <ul class="pagination text-center">
         <% if (currentPage == 1) { %>
@@ -67,6 +69,9 @@
         <% } %>
     </ul>
     <% } %>
+    <!-- Pagination End -->
+    
+    <!-- Columns Start --> 
     <table class="container">
         <thead>
             <tr>
@@ -76,6 +81,9 @@
                 <th>Delete</th>
             </tr>
         </thead>
+        <!-- Columns End --> 
+
+        <!-- Data Start --> 
         <tbody>
             <% for(let i = 0 ; i<data.length ; i++){%>
             <tr id=<%= data[i][0] %>>
@@ -86,9 +94,9 @@
                 btn-danger">Delete</button>
                 </td>
                 <%}%>
-
             <tr>
-                </tbody>
+        </tbody>
+        <!-- Data End --> 
     </table>
 
     <script src="../js/jquery.min.js"></script>

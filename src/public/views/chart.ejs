@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Let Me Log V.0.1</title>
+		<link rel="stylesheet" href="../css/chart.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css"
+		/>
+
+		<!-- Chart-JS -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	</head>
+
+	<body>
+		<%- include('partials/navbar')%>
+
+		<div class="split-pane col-xs-12 col-sm-6 right-side">
+			<div>
+				<div class="text-content">
+					<canvas style="margin-left: 15%" id="myChart" width="600" height="600"></canvas>
+				</div>
+			</div>
+		</div>
+
+		<div class="split-pane col-xs-12 col-sm-6 left-side">
+			<div class="text-content">
+				<div class="row">
+					<p>Total Requests</p>
+				</div>
+				<div class="row">
+					<div class="col-xl-6 col-sm-6 col-12">
+						<div class="card">
+							<div class="card-content">
+								<div class="card-body">
+									<div class="media d-flex">
+										<div class="media-body text-left">
+											<span><%= data.total_request_count %></span>
+										</div>
+										<div class="align-self-center"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!---------------------------------->
+				<div class="row">
+					<p>First Request Date</p>
+				</div>
+				<div class="row">
+					<div class="col-xl-6 col-sm-6 col-12">
+						<div class="card">
+							<div class="card-content">
+								<div class="card-body">
+									<div class="media d-flex">
+										<div class="media-body text-left">
+											<span><%= data.first_request_date %></span>
+										</div>
+										<div class="align-self-center"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!---------------------------------->
+				<div class="row">
+					<p>First Request Time</p>
+				</div>
+				<div class="row">
+					<div class="col-xl-6 col-sm-6 col-12">
+						<div class="card">
+							<div class="card-content">
+								<div class="card-body">
+									<div class="media d-flex">
+										<div class="media-body text-left">
+											<span><%= data.first_request_time %></span>
+										</div>
+										<div class="align-self-center"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!---------------------------------->
+				<div class="row">
+					<p>Last Request Date</p>
+				</div>
+				<div class="row">
+					<div class="col-xl-6 col-sm-6 col-12">
+						<div class="card">
+							<div class="card-content">
+								<div class="card-body">
+									<div class="media d-flex">
+										<div class="media-body text-left">
+											<span><%= data.last_request_date %></span>
+										</div>
+										<div class="align-self-center"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!---------------------------------->
+				<div class="row">
+					<p>Last Request Time</p>
+				</div>
+				<div class="row">
+					<div class="col-xl-6 col-sm-6 col-12">
+						<div class="card">
+							<div class="card-content">
+								<div class="card-body">
+									<div class="media d-flex">
+										<div class="media-body text-left">
+											<span><%= data.last_request_time %></span>
+										</div>
+										<div class="align-self-center"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!---------------------------------->
+				<div class="row">
+					<p>Owner</p>
+				</div>
+				<div class="row">
+					<div class="col-xl-6 col-sm-6 col-12">
+						<div class="card">
+							<div class="card-content">
+								<div class="card-body">
+									<div class="media d-flex">
+										<div class="media-body text-left">
+											<span><%= data.owner %></span>
+										</div>
+										<div class="align-self-center"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!---------------------------------->
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var ctx = document.getElementById('myChart');
+		var myChart = new Chart(ctx, {
+			type: 'doughnut',
+			data: {
+				labels: ['Success', 'Failed'],
+				datasets: [
+					{
+						data: ['<%- data.count_200 %>', '<%- data.count_404 %>'], // First param success / second param fail
+						backgroundColor: [
+							'rgba(0, 148, 50,1.0)', // Green
+							'rgba(234, 32, 39,1.0)' // Red
+						],
+						borderColor: [
+							'rgba(0, 148, 50,1.0)', // Green
+							'rgba(234, 32, 39,1.0)' // Red
+						],
+						borderWidth: 2,
+						hoverOffset: 4
+					}
+				]
+			},
+			options: {
+				responsive: true,
+				layout: {
+					padding: {
+						bottom: 0
+					}
+				}
+			}
+		});
+	</script>
+</html>
