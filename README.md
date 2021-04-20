@@ -1,11 +1,13 @@
 # LetMeLog URL Status Logger App
-This project created on behalf of [Ekinoks Software](https://github.com/EkinoksSoftware) 
+
 #### Version: 0.1.0
 
 #### Main dev tools used:
+
 `NodeJS & ExpressJS` - `KnexJS (^0.95.1)` - `PostgreSQL` - `Typescript` - `EJS` and `Axios`
 
 #### Other Dependencies
+
 - [JsonWebToken](https://www.npmjs.com/package/jsonwebtoken)
 - [bcryptJS](https://www.npmjs.com/package/bcryptjs)
 - [Joi](https://joi.dev/api/?v=17.4.0)
@@ -14,6 +16,7 @@ This project created on behalf of [Ekinoks Software](https://github.com/EkinoksS
 - [PassportJS](http://www.passportjs.org/)
 
 #### How to run (As Default)
+
 ```
 1.) Create database named letmelog-db.
 2.) Edit Database credentials on .env file (DB_USER / DB_PASSPORT etc.)
@@ -26,7 +29,9 @@ This project created on behalf of [Ekinoks Software](https://github.com/EkinoksS
 4.) Go to http://localhost:4836 on browser
 
 ```
+
 #### How To Use
+
 ```
 1-) Register
 2-) Login using your username/password
@@ -38,6 +43,7 @@ This project created on behalf of [Ekinoks Software](https://github.com/EkinoksS
 ```
 
 #### To-Do List
+
 ```
 - Add Request Table Pagination
 - Add Ordering Parameters For All Tables
@@ -49,9 +55,11 @@ This project created on behalf of [Ekinoks Software](https://github.com/EkinoksS
 ```
 
 ### Note :
-----
-*.env file only shared for dev purposes*
+
+---
+
+_.env file only shared for dev purposes_
 
 #### Documentation and Postman Test
-Documentation will be soon provided.
 
+Documentation will be soon provided.
