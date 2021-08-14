@@ -24,7 +24,7 @@
 
     $ yarn                  - Installs all node modules
     $ yarn run mig          - Runs all migration scripts
-    $ yarn run seed         - Runs all seed scripts (Defaultly,Not Seed File Provided , see database/Seeds)
+    $ yarn run seed         - Runs all seed scripts (Defaultly,No Seed File Provided , see database/Seeds)
     $ yarn run dev          - Starts app on port 4836(Default)
 4.) Go to http://localhost:4836 on browser
 
